@@ -4,8 +4,7 @@ import StepsSection from "@/components/sections/StepsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import FeaturesSection from "@/components/sections/FeaturesSection";
 import TopSoldSection from "@/components/sections/TopSoldSection";
-import StatsSection from "@/components/sections/StatsSection";
-import PricingSection from "@/components/sections/PricingSection";
+import FaqSection from "@/components/sections/FaqSection";
 import CtaSection from "@/components/sections/CtaSection";
 import Footer from "@/components/shared/Footer";
 
@@ -17,10 +16,9 @@ export default function Home() {
         <HeroSection />
         <StepsSection />
         <ServicesSection />
-        <FeaturesSection />
         <TopSoldSection />
-        <PricingSection />
-        <StatsSection />
+        <FeaturesSection />
+        <FaqSection />
         <CtaSection />
       </main>
       <Footer />

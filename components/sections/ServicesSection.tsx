@@ -30,7 +30,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="w-full py-[80px] lg:py-[120px] bg-white overflow-hidden">
+    <section id="services" className="w-full py-[80px] lg:py-[120px] bg-white overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-[36px] md:text-[48px] font-medium leading-[1.1] tracking-tight text-surface-dark mb-6">

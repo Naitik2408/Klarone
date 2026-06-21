@@ -60,7 +60,7 @@ const socialLinks = [
 
 export default function StatsSection() {
   return (
-    <section id="community" className="w-full py-[80px] lg:py-[120px] bg-[#181d26] text-white">
+    <section id="community" className="w-full py-[80px] lg:py-[120px] bg-surface-dark text-white">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12">
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12 items-center">
@@ -96,10 +96,10 @@ export default function StatsSection() {
                 <Link 
                   key={social.name}
                   href={social.href}
-                  className={`group bg-[#1d1f25] p-6 sm:p-8 rounded-3xl border border-gray-800 transition-all duration-300 ${social.bgHover} hover:bg-[#23262d]`}
+                  className={`group bg-surface-dark p-6 sm:p-8 rounded-3xl border border-gray-800 transition-all duration-300 ${social.bgHover} hover:bg-[#23262d]`}
                 >
                   <div className="flex items-start justify-between mb-8">
-                    <div className="p-3 rounded-xl bg-[#181d26] transition-colors border border-gray-800/50 shadow-inner group-hover:bg-[#1d1f25]">
+                    <div className="p-3 rounded-xl bg-surface-dark transition-colors border border-gray-800/50 shadow-inner group-hover:bg-surface-dark-elevated">
                       <Icon className={`w-6 h-6 text-gray-400 transition-colors ${social.hoverColor}`} />
                     </div>
                     <ArrowUpRight className="w-5 h-5 text-gray-600 group-hover:text-white transition-colors" />

@@ -7,14 +7,14 @@
 */
 @theme {
   --color-background: #ffffff;
-  --color-foreground: #181d26;
+  --color-foreground: #111111;
   
-  --color-primary: #181d26;
+  --color-primary: #111111;
   --color-primary-foreground: #ffffff;
   
-  --color-primary-active: #0d1218;
+  --color-primary-active: #000000;
   
-  --color-accent: #181d26;
+  --color-accent: #00A7B5;
   --color-accent-foreground: #ffffff;
   
   --color-success: #006400;
@@ -24,8 +24,8 @@
   
   --color-surface-soft: #f8fafc;
   --color-surface-strong: #e0e2e6;
-  --color-surface-dark: #181d26;
-  --color-surface-dark-elevated: #1d1f25;
+  --color-surface-dark: #111111;
+  --color-surface-dark-elevated: #1a1a1a;
   
   --color-hairline: #dddddd;
   
@@ -37,7 +37,7 @@
   --color-signature-cream: #f5e9d4;
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
   
   /* Geometry */
   --radius-xs: 2px;
@@ -53,19 +53,19 @@
 @layer base {
   :root {
     --background: #ffffff;
-    --foreground: #181d26;
+    --foreground: #111111;
     --card: #ffffff;
-    --card-foreground: #181d26;
+    --card-foreground: #111111;
     --popover: #ffffff;
-    --popover-foreground: #181d26;
-    --primary: #181d26;
+    --popover-foreground: #111111;
+    --primary: #111111;
     --primary-foreground: #ffffff;
     --secondary: #f8fafc;
-    --secondary-foreground: #181d26;
+    --secondary-foreground: #111111;
     --muted: #f8fafc;
     --muted-foreground: #41454d;
-    --accent: #f8fafc;
-    --accent-foreground: #181d26;
+    --accent: #00A7B5;
+    --accent-foreground: #ffffff;
     --success: #006400;
     --success-foreground: #ffffff;
     --border: #dddddd;

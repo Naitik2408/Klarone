@@ -51,41 +51,41 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center group">
           <div className="flex items-center justify-center transition-transform group-hover:scale-105">
-            <Image src="/logo.webp" alt="Klarone Logo" width={110} height={32} className="object-contain h-7 w-auto" />
+            <Image src="/logo.webp" alt="Klarone Logo" width={110} height={32} className="object-contain h-7 w-auto" style={{ width: 'auto' }} />
           </div>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="#how-it-works" className="text-[14px] font-medium text-[#666666] hover:text-[#181d26] transition-colors relative group">
+          <Link href="#how-it-works" className="text-[14px] font-medium text-[#666666] hover:text-surface-dark transition-colors relative group">
             How it Works
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#181d26] transition-all group-hover:w-full"></span>
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-surface-dark transition-all group-hover:w-full"></span>
           </Link>
-          <Link href="#examples" className="text-[14px] font-medium text-[#666666] hover:text-[#181d26] transition-colors relative group">
-            Examples
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#181d26] transition-all group-hover:w-full"></span>
+          <Link href="#services" className="text-[14px] font-medium text-[#666666] hover:text-surface-dark transition-colors relative group">
+            Services
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-surface-dark transition-all group-hover:w-full"></span>
           </Link>
-          <Link href="#why-klarone" className="text-[14px] font-medium text-[#666666] hover:text-[#181d26] transition-colors relative group">
-            Why Klarone
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#181d26] transition-all group-hover:w-full"></span>
+          <Link href="#top-picks" className="text-[14px] font-medium text-[#666666] hover:text-surface-dark transition-colors relative group">
+            Top Picks
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-surface-dark transition-all group-hover:w-full"></span>
           </Link>
-          <Link href="#community" className="text-[14px] font-medium text-[#666666] hover:text-[#181d26] transition-colors relative group">
-            Community
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#181d26] transition-all group-hover:w-full"></span>
+          <Link href="#faq" className="text-[14px] font-medium text-[#666666] hover:text-surface-dark transition-colors relative group">
+            FAQ
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-surface-dark transition-all group-hover:w-full"></span>
           </Link>
         </nav>
 
         {/* Right Actions */}
         <div className="flex items-center gap-4">
           <Link 
-            href="#expert" 
-            className="hidden sm:inline-flex h-10 items-center justify-center rounded-full border border-[#dddddd] bg-white px-5 text-[14px] font-medium text-[#181d26] transition-all hover:bg-gray-50"
+            href="/shop" 
+            className="hidden sm:inline-flex h-10 items-center justify-center rounded-full border border-hairline bg-white px-5 text-[14px] font-medium text-surface-dark transition-all hover:bg-gray-50"
           >
-            Talk To An Expert
+            Shop Now
           </Link>
           <Link 
-            href="#find-laptop" 
-            className="inline-flex h-10 items-center justify-center rounded-full bg-[#181d26] px-5 text-[14px] font-medium text-white transition-all hover:bg-black"
+            href="/find-laptop" 
+            className="inline-flex h-10 items-center justify-center rounded-full bg-surface-dark px-5 text-[14px] font-medium text-white transition-all hover:bg-black"
           >
             Find My Laptop
           </Link>

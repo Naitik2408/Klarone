@@ -47,7 +47,7 @@ const topLaptops = [
 
 export default function TopSoldSection() {
   return (
-    <section className="w-full py-[80px] lg:py-[120px] bg-white overflow-hidden">
+    <section id="top-picks" className="w-full py-[80px] lg:py-[120px] bg-white overflow-hidden">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-12 mb-16">
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-[36px] md:text-[48px] font-medium leading-[1.1] tracking-tight text-surface-dark mb-6">
@@ -61,10 +61,7 @@ export default function TopSoldSection() {
 
       {/* Auto Scrolling Marquee */}
       <div className="relative w-full overflow-hidden flex">
-        {/* Left and Right fade overlays for smooth entrance/exit */}
-        <div className="absolute top-0 left-0 bottom-0 w-24 md:w-48 bg-linear-to-r from-white to-transparent z-10 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 bottom-0 w-24 md:w-48 bg-linear-to-l from-white to-transparent z-10 pointer-events-none"></div>
-        
+
         <div className="flex gap-6 px-6 animate-scroll-left w-max hover:paused py-4">
           {/* Original List */}
           {topLaptops.map((laptop) => (

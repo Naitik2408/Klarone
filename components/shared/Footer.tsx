@@ -34,14 +34,14 @@ export default function Footer() {
           <div className="lg:col-span-2 flex flex-col items-start">
             <Link href="/" className="flex items-center group mb-6">
               <div className="flex items-center justify-center">
-                <Image src="/logo.webp" alt="Klarone Logo" width={140} height={40} className="object-contain h-10 w-auto" />
+                <Image src="/logo.webp" alt="Klarone Logo" width={140} height={40} className="object-contain h-10 w-auto" style={{ width: 'auto' }} />
               </div>
             </Link>
             <p className="text-[15px] text-[#666666] leading-relaxed max-w-sm mb-8">
               Klarone helps people discover, choose, and manage the right technology with confidence.
             </p>
             <div className="flex items-center gap-4">
-              <Link href="#" className="w-10 h-10 rounded-full bg-[#f8fafc] border border-[#e2e8f0] flex items-center justify-center text-[#444444] hover:bg-[#181d26] hover:text-white hover:border-[#181d26] transition-all">
+              <Link href="#" className="w-10 h-10 rounded-full bg-surface-soft border border-[#e2e8f0] flex items-center justify-center text-[#444444] hover:bg-surface-dark hover:text-white hover:border-surface-dark transition-all">
                 <Globe className="w-4 h-4" />
               </Link>
               <Link href="#" className="w-10 h-10 rounded-full bg-[#f8fafc] border border-[#e2e8f0] flex items-center justify-center text-[#444444] hover:bg-[#181d26] hover:text-white hover:border-[#181d26] transition-all">

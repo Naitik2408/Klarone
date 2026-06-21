@@ -59,10 +59,20 @@ export default function StepsSection() {
               </div>
 
               {/* CTA Card */}
-              <Link href="#find-laptop" className="flex flex-col justify-center items-center text-center bg-surface-dark p-8 rounded-2xl group cursor-pointer hover:bg-black transition-colors">
-                <h3 className="text-[24px] font-medium text-white mb-4">Find My Laptop</h3>
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                  <ArrowRight className="w-6 h-6 text-white" />
+              <Link href="/find-laptop" className="relative flex flex-col justify-center items-center text-center p-8 rounded-2xl group cursor-pointer overflow-hidden transition-all shadow-sm">
+                {/* Background Logo */}
+                <div className="absolute inset-0 z-0 bg-surface-dark">
+                  <img src="/logo.webp" alt="Klarone Logo" className="w-full h-full object-contain p-8 opacity-40 scale-125 group-hover:scale-110 transition-transform duration-700" />
+                </div>
+                {/* Semi-transparent black overlay */}
+                <div className="absolute inset-0 z-10 bg-black/60 group-hover:bg-black/70 transition-colors duration-300"></div>
+                
+                {/* Content */}
+                <div className="relative z-20 flex flex-col items-center">
+                  <h3 className="text-[24px] font-medium text-white mb-4 drop-shadow-md">Find My Laptop</h3>
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform border border-white/30">
+                    <ArrowRight className="w-6 h-6 text-white" />
+                  </div>
                 </div>
               </Link>
 

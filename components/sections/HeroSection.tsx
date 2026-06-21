@@ -19,16 +19,16 @@ export default function HeroSection() {
             
             <div className="flex flex-col sm:flex-row items-center gap-4 mb-14">
               <Link 
-                href="#find-laptop" 
+                href="/find-laptop" 
                 className="inline-flex items-center justify-center h-12 rounded-full bg-surface-dark px-8 text-[15px] font-medium text-white hover:bg-black transition-all"
               >
                 Find My Laptop
               </Link>
               <Link 
-                href="#expert" 
+                href="/shop" 
                 className="inline-flex items-center justify-center h-12 rounded-full border border-hairline bg-white px-8 text-[15px] font-medium text-surface-dark hover:bg-gray-50 transition-all"
               >
-                Talk To An Expert
+                Shop Now
               </Link>
             </div>
 
