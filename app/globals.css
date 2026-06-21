@@ -1,26 +1,152 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* 
+  Klarone DESIGN.md (Airtable Style)
+*/
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #181d26;
+  
+  --color-primary: #181d26;
+  --color-primary-foreground: #ffffff;
+  
+  --color-primary-active: #0d1218;
+  
+  --color-accent: #181d26;
+  --color-accent-foreground: #ffffff;
+  
+  --color-success: #006400;
+  --color-success-foreground: #ffffff;
+  
+  --color-link: #1b61c9;
+  
+  --color-surface-soft: #f8fafc;
+  --color-surface-strong: #e0e2e6;
+  --color-surface-dark: #181d26;
+  --color-surface-dark-elevated: #1d1f25;
+  
+  --color-hairline: #dddddd;
+  
+  --color-body: #333840;
+  --color-muted: #41454d;
+  
+  --color-signature-coral: #aa2d00;
+  --color-signature-forest: #0a2e0e;
+  --color-signature-cream: #f5e9d4;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Geometry */
+  --radius-xs: 2px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /* Spacing Rhythm */
+  --spacing-section: 96px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #181d26;
+    --card: #ffffff;
+    --card-foreground: #181d26;
+    --popover: #ffffff;
+    --popover-foreground: #181d26;
+    --primary: #181d26;
+    --primary-foreground: #ffffff;
+    --secondary: #f8fafc;
+    --secondary-foreground: #181d26;
+    --muted: #f8fafc;
+    --muted-foreground: #41454d;
+    --accent: #f8fafc;
+    --accent-foreground: #181d26;
+    --success: #006400;
+    --success-foreground: #ffffff;
+    --border: #dddddd;
+    --input: #dddddd;
+    --ring: #181d26;
+    --radius: 10px;
+  }
+
+  * {
+    border-color: var(--border);
+    @apply outline-ring/50;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --font-heading: var(--font-sans);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-50% - 0.75rem)); /* 50% shift for duplicated content, accounting for gap */
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(calc(-50% - 0.75rem));
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+@layer utilities {
+  .animate-scroll-up {
+    animation: scroll-up 30s linear infinite;
+  }
+  .animate-scroll-down {
+    animation: scroll-down 30s linear infinite;
+  }
+  .animate-scroll-left {
+    animation: scroll-left 40s linear infinite;
+  }
 }
