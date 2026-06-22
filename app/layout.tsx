@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
-import Header from "@/components/Header";
+import ConditionalHeader from "@/components/ConditionalHeader";
 import "./globals.css";
 
 const inter = Inter({
@@ -36,7 +36,7 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
     >
       <body className="min-h-full flex flex-col font-sans text-black relative bg-background selection:bg-black selection:text-white">
-        <Header />
+        <ConditionalHeader />
         <main className="flex-1 flex flex-col">
           {children}
         </main>

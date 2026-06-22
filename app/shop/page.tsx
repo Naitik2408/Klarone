@@ -21,8 +21,10 @@ import {
   Search,
   ArrowUpRight,
   Star,
-  StarHalf
+  StarHalf,
+  Laptop
 } from "lucide-react";
+import { mockFamilies, mockVariants, getFamilyStats } from "@/lib/mock-data";
 
 // Mock Data
 const filters = [
@@ -61,66 +63,6 @@ const filters = [
     ]
   },
   { name: "MEMORY", type: "accordion", defaultOpen: false },
-];
-
-const products = [
-  {
-    id: 1,
-    name: "MacBook Air M3 - 15-inch",
-    price: "₹1,34,900.00",
-    image: "/top/top5.webp",
-    badges: [{ text: "NEW", type: "dark" }, { text: "2025", type: "light" }],
-    configs: ["8GB", "16GB", "24GB"],
-    colors: ["#2e3641", "#f0e4d3", "#6f7377", "#e3e4e6"]
-  },
-  {
-    id: 2,
-    name: "Lenovo ThinkPad X1 Carbon Gen 12",
-    price: "₹1,45,000.00",
-    image: "/top/top1.webp",
-    badges: [{ text: "2024", type: "light" }],
-    configs: ["16GB", "32GB"],
-    colors: ["#181d26", "#e3e4e6"]
-  },
-  {
-    id: 3,
-    name: "Dell XPS 14 - Platinum",
-    price: "₹1,69,990.00",
-    originalPrice: "₹1,80,000.00",
-    image: "/top/top2.webp",
-    badges: [{ text: "-7%", type: "danger" }, { text: "2024", type: "light" }],
-    configs: ["16GB", "32GB", "64GB"],
-    colors: ["#e3e4e6", "#181d26"]
-  },
-  {
-    id: 4,
-    name: "ASUS ROG Zephyrus G14",
-    price: "₹1,54,990.00",
-    image: "/top/top3.webp",
-    badges: [{ text: "NEW", type: "dark" }, { text: "2025", type: "light" }],
-    configs: ["16GB", "32GB"],
-    colors: ["#6f7377", "#ffffff", "#000000"]
-  },
-  {
-    id: 5,
-    name: "HP Spectre x360 14",
-    price: "₹1,39,999.00",
-    originalPrice: "₹1,49,999.00",
-    image: "/top/top4.webp",
-    badges: [{ text: "-15%", type: "danger" }, { text: "2023", type: "light" }],
-    configs: ["16GB"],
-    colors: ["#181d26"]
-  },
-  {
-    id: 6,
-    name: "Razer Blade 16",
-    price: "₹2,89,990.00",
-    originalPrice: "₹3,00,000.00",
-    image: "/top/top5.webp",
-    badges: [{ text: "-18%", type: "danger" }, { text: "2023", type: "light" }],
-    configs: ["32GB", "64GB"],
-    colors: ["#000000", "#181d26", "#ffffff"]
-  }
 ];
 
 export default function CatalogPage() {
@@ -256,88 +198,45 @@ export default function CatalogPage() {
             </div>
 
             {/* Product Grid */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-10">
-              {products.map((item) => (
-                <div key={item.id} className="flex flex-col group border border-gray-200 rounded-2xl overflow-hidden hover:border-gray-300 transition-all bg-white">
-                  
-                  {/* Image Area */}
-                  <div className="relative bg-white aspect-[4/3] flex items-center justify-center p-8 overflow-hidden">
-                    {/* Badges */}
-                    <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
-                      {item.badges.map((badge, bIdx) => (
-                        <span 
-                          key={bIdx} 
-                          className={`text-[10px] font-bold tracking-wider px-2 py-1 rounded-sm w-fit ${
-                            badge.type === 'dark' ? 'bg-surface-dark text-white' : 
-                            badge.type === 'danger' ? 'text-[#ff3b30] font-medium' : 
-                            'bg-white text-surface-dark shadow-sm border border-gray-100'
-                          }`}
-                        >
-                          {badge.text}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <Link href={`/shop/laptop-${item.id}`} className="absolute inset-0 z-0"></Link>
-                    <img 
-                      src={item.image} 
-                      alt={item.name} 
-                      className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-500" 
-                    />
-                  </div>
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {mockFamilies.map((family) => {
+                const variants = mockVariants.filter(v => v.product_family_id === family.id);
+                const minPrice = variants.length > 0 ? Math.min(...variants.map(v => v.base_price)) : 0;
+                const stats = getFamilyStats(family.id);
 
-                  {/* Card Bottom Content */}
-                  <div className="p-5 flex flex-col flex-1 bg-white border-t border-gray-100 relative z-10">
-                    {/* Configs */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {item.configs.map((conf, cIdx) => (
-                        <span key={cIdx} className="px-3 py-1.5 border border-gray-200 rounded-md text-[11px] font-medium text-gray-500 hover:border-gray-400 hover:text-surface-dark cursor-pointer transition-colors">
-                          {conf}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center justify-between mb-4">
-                      {/* Colors */}
-                      <div className="flex items-center gap-2">
-                        {item.colors.map((color, idx) => (
-                          <div 
-                            key={idx} 
-                            className={`w-4 h-4 rounded-full border shadow-inner ${idx === 0 ? 'ring-2 ring-offset-1 ring-surface-dark' : 'border-gray-300'}`} 
-                            style={{ backgroundColor: color }}
-                          ></div>
-                        ))}
-                        {item.colors.length > 2 && (
-                          <div className="w-5 h-5 rounded-full bg-gray-100 flex items-center justify-center text-[10px] font-medium text-gray-500">
-                            +{item.colors.length - 2}
-                          </div>
-                        )}
+                return (
+                  <Link href={`/shop/${family.id}`} key={family.id} className="group flex flex-col gap-4">
+                    {/* Product Image Card */}
+                    <div className="relative aspect-[4/3] bg-[#f8fafc] rounded-[16px] flex items-center justify-center p-8 overflow-hidden group-hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all duration-300">
+                      {/* Placeholder Icon */}
+                      <Laptop className="w-24 h-24 text-[#dddddd] group-hover:scale-105 transition-transform duration-500 ease-out" />
+                      
+                      {/* Badges */}
+                      <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                        <span className="bg-[#181d26] text-white text-[10px] font-bold tracking-wider px-2 py-1 rounded-[4px]">FAMILY</span>
                       </div>
-
-                      {/* Compare Button */}
-                      <button className="flex items-center gap-1 text-[11px] font-medium text-gray-500 hover:text-surface-dark transition-colors relative z-10">
-                        <Plus className="w-3 h-3" />
-                        COMPARE
-                      </button>
                     </div>
 
-                    <div className="mt-auto">
-                      <Link href={`/shop/laptop-${item.id}`} className="relative z-10">
-                        <h3 className="text-[15px] font-medium text-surface-dark leading-snug mb-1 group-hover:text-[#00A7B5] transition-colors line-clamp-2">
-                          {item.name}
+                    {/* Product Info */}
+                    <div className="flex flex-col gap-2">
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="font-semibold text-[16px] text-[#181d26] leading-tight group-hover:text-[#1b61c9] transition-colors">
+                          {family.brand} {family.series} {family.model_name}
                         </h3>
-                      </Link>
+                      </div>
+                      
                       <div className="flex items-center gap-2">
-                        {item.originalPrice && (
-                          <span className="text-[13px] text-gray-400 line-through">{item.originalPrice}</span>
-                        )}
-                        <span className="text-[14px] font-medium text-[#41454d]">MRP {item.price}</span>
+                        <span className="font-semibold text-[15px] text-[#181d26]">Starting from ₹{minPrice.toLocaleString()}</span>
+                      </div>
+                      
+                      <div className="flex items-center gap-3 text-[12px] text-[#9297a0] mt-1">
+                        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#1b61c9]"></span> {stats.totalVariants} Variants</span>
+                        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-[#0d9488]"></span> {stats.availableUnits} In Stock</span>
                       </div>
                     </div>
-                  </div>
-
-                </div>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
